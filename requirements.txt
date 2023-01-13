@@ -1,0 +1,7 @@
+flask
+Pillow
+werkzeug
+joblib
+sklearn
+numpy
+gunicorn

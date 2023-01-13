@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Sandals or Sneakers</title>
+<h3>Sandals vs. Sneakers Classifer</h3>
+<span>Upload a picture of a shoe (<code>.png, .jpg, .jpeg</code>)</span>
+<form method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input type=submit value=Upload>
+</form>
+{% if file_url %}
+<span style="margin-top: 10px;display:block">This looks like a <b>{{ type }}</b> to me</span><br/>
+<img src='{{ file_url }}' width=200px />
+<img src='{{ cleaned_file_url }}' width=200px />
+{% endif %}
+
+<div>
+  Considerations
+  <ul>
+    <li>The classifier model prefers shoes that face the left</li>
+    <li>This is a very rough demo</li>
+  </ul>
+</div>
+
+<h4>Examples</h4>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Processed Image</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><img src="/static/sandal.png" width=200px/></th>
+    <td><img src="/static/sandal-processed.png" width=200px/></th>
+    <td>Sandal</td>
+  </tr>
+  <tr>
+    <td><img src="/static/sneaker.png" width=200px/></th>
+    <td><img src="/static/sneaker-processed.png" width=200px/></th>
+    <td>Sneaker</td>
+  </tr>
+</table>
